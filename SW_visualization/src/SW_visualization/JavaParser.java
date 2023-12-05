@@ -35,8 +35,14 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
 public class JavaParser {
-	public CompilationUnit compilationUnit;
+	File file = new File("log.txt");
 
+	public CompilationUnit compilationUnit;
+    PrintStream printStream = new PrintStream(new FileOutputStream(file));
+    PrintStream sysout = System.out;    
+	System.setOut(printStream);
+	System.setErr(printStream);
+	
 	public JavaParser() {
 		String fileName = "./target1";
 		File ffile = new File(fileName);
